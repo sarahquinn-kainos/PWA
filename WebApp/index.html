@@ -1,85 +1,116 @@
 <!DOCTYPE html>
-  <html manifest="application.appcache">
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <!--Link to JavaScript file-->
-      <script type="text/javascript" src="application.js"></script>
+<html>
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <header>
-        <nav> 
-            <div class="nav-wrapper teal" style="padding: 5px">
-                <a class="brand-logo" style="font-size:150%"><i class="material-icons">school</i>Book Review</a>
-            </div>
-        </nav>
-    </header>
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <!--Link to JavaScript file-->
+  <script type="text/javascript" src="application.js"></script>
 
-    <body>
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<header>
+  <nav>
+    <div class="nav-wrapper teal" style="padding: 5px">
+      <a class="brand-logo" style="font-size:150%">
+        <i class="material-icons">school</i>Book Review</a>
+    </div>
+  </nav>
+</header>
 
-      <div style="text-align:center; padding: 20px;">
-        <img src = "book.png" alt = "Main Icon Image" style='height: 10%; width: 10%; object-fit: contain'/>
-      </div>
+<body>
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+
+  <div style="text-align:center; padding: 20px;">
+    <img src="book.png" alt="Main Icon Image" style='height: 10%; width: 10%; object-fit: contain' />
+  </div>
 
   <div class="row">
-        <form class="col s12" name="form" id="book_review_form">
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="author_name" type="text" class="validate">
-              <label for="author_name">Author</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="book_name" type="text" class="validate">
-              <label for="book_name">Book Title</label>
-            </div>
-          </div>
-          <div class="row">
-                <p>
-                    <input name="opinion" type="radio" id="option1" value="I would read it again"/>
-                    <label for="option1">I would read it again</label>
-                </p>
-                <p>
-                    <input name="opinion" type="radio" id="option2" value="I would not read it again" />
-                    <label for="option2">I would not read it again</label>
-                </p>
-                <p>
-                    <input name="opinion" type="radio" id="option3" value="I wish I'd never read it at all"/>
-                    <label for="option3">I wish I'd never read it at all</label>
-                </p>
-              </div>
-          <div class="row">
-            <div class="input-field col s12">
-                <textarea id="review" class="materialize-textarea"></textarea>
-                <label for="review">Book Review</label>
-             </div>
-          </div>
-          <div class="row">
-          </div>
-        </form>
+    <form class="col s12" name="form" id="book_review_form">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="author_name" type="text" class="validate">
+          <label for="author_name">Author</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="book_name" type="text" class="validate">
+          <label for="book_name">Book Title</label>
+        </div>
       </div>
-      <div class = "card-panel teal lighten-2 white-text" style="text-align: center; width:50%; object-fit:contain; margin: 0 auto; padding:10px;" ><p>Your feedback helps us stock books that our customers love!</p>
-        <a href="#" onclick="submit_form()" style="color: white; display:inline-block; background:#0e8e77; padding:10px 20px;" >Submit</a>
-    </div>
-    </body>
-  </html>
+      <div class="row">
+        <p>
+          <input name="opinion" type="radio" id="option1" value="I would read it again" />
+          <label for="option1">I would read it again</label>
+        </p>
+        <p>
+          <input name="opinion" type="radio" id="option2" value="I would not read it again" />
+          <label for="option2">I would not read it again</label>
+        </p>
+        <p>
+          <input name="opinion" type="radio" id="option3" value="I wish I'd never read it at all" />
+          <label for="option3">I wish I'd never read it at all</label>
+        </p>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="review" class="materialize-textarea"></textarea>
+          <label for="review">Book Review</label>
+        </div>
+      </div>
+      <div class="row">
+      </div>
+    </form>
+  </div>
+  <div class="card-panel teal lighten-2 white-text" style="text-align: center; width:50%; object-fit:contain; margin: 0 auto; padding:10px;">
+    <p>Your feedback helps us stock books that our customers love!</p>
+    <a href="#" onclick="submit_form()" style="color: white; display:inline-block; background:#0e8e77; padding:10px 20px;">Submit</a>
+  </div>
+</body>
+
+</html>
 <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
 <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBxpvhJwdAoHXTJafKQrqQMTp0_4LE2dl8",
+      authDomain: "reviews-54220.firebaseapp.com",
+      databaseURL: "https://reviews-54220.firebaseio.com",
+      projectId: "reviews-54220",
+      storageBucket: "",
+      messagingSenderId: "763208636222"
+    };
+    firebase.initializeApp(config);
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyC7KsT9Bpyq6tiJKbIhKut5bDzDBAKf0xA",
-    authDomain: "book-review-5e31c.firebaseapp.com",
-    databaseURL: "https://book-review-5e31c.firebaseio.com", 
-    projectId: "book-review-5e31c",
-    storageBucket: "",
-    messagingSenderId: "357862649099"
-  };
-  firebase.initializeApp(config);
+  // Register A Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/sw.js').then(function (registration) {
+        // Registration was successful
+      navigator.serviceWorker.ready.then(function(swRegistration) {
+        return swRegistration.sync.register('myFirstSync');
+});
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function (err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+  if ('serviceWorker' in navigator && 'SyncManager' in window) {
+    navigator.serviceWorker.ready.then(function(reg) {
+      return reg.sync.register('tag-name');
+    }).catch(function() {
+        // system was unable to register for a sync,
+        // this could be an OS-level restriction
+        postDataFromThePage();
+    });
+} else {
+    // serviceworker/sync not supported
+    postDataFromThePage();
+  }
 </script>

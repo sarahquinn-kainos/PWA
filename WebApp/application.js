@@ -1,6 +1,11 @@
+if ((localStorage.getItem("queue"))!=null){
+    var queue = JSON.parse(localStorage.getItem("queue"));
+    upload_form_to_db(queue);
+    }
+
 window.addEventListener('offline', function(e) { 
     console.log('offline'); 
-    alert("\n\n OFFLINE \nAll forms will be uploaded once network connection is found.\n" );
+    alert("\n\nOFFLINE \nAll forms will be uploaded once network connection is found.\n" );
     }
     );
 
@@ -52,14 +57,19 @@ function upload_form_to_db(queue){
             Book: x[1],
             Opinion: x[2],
             Review: x[3]}
-        db.ref("reviews").push(new_review);
+        console.log(JSON.stringify(new_review));
         console.log("\nREVIEW SUBMITTED:"+
                     "\nAuthor: "+ x[0]+
                     "\nBook: "+ x[1]+
                     "\nOpinion: "+ x[2]+
                     "\nReview: "+ x[3]+"\n"); 
+        db.ref("reviews").push(new_review).then(function (){
+            console.log("success");
+            window.location.pathname = '/submitsuccess.html';
+        }, function(error){
+            console.error(error);
+        });
     }
     localStorage.removeItem("queue");
     console.log("\nQUEUE CLEARED");
-    alert("Form(s) Submitted!");
 }
